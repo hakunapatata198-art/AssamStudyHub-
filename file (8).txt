@@ -1,0 +1,18 @@
+
+{
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
+Tool Call
+Function Name:
+Write
+Arguments:
+file_path:
+/home/user/student-solutions-next/jsconfig.json
+content:
+{
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}

@@ -1,0 +1,168 @@
+
+export const classes = [
+  {
+    slug: 'class-8',
+...
+      }))
+    )
+  );
+}
+Tool Call
+Function Name:
+Write
+Arguments:
+file_path:
+/home/user/student-solutions-next/lib/siteData.js
+content:
+export const classes = [
+  {
+    slug: 'class-8',
+    name: 'Class 8',
+    board: 'School Board',
+    subjects: [
+      {
+        slug: 'mathematics',
+        name: 'Mathematics',
+        chapters: [
+          { slug: 'chapter-1-rational-numbers', title: 'Chapter 1: Rational Numbers', pdf: true },
+          { slug: 'chapter-2-linear-equations', title: 'Chapter 2: Linear Equations', pdf: true },
+        ],
+      },
+      {
+        slug: 'science',
+        name: 'Science',
+        chapters: [
+          { slug: 'chapter-1-crop-production', title: 'Chapter 1: Crop Production', pdf: false },
+          { slug: 'chapter-2-microorganisms', title: 'Chapter 2: Microorganisms', pdf: true },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'class-9',
+    name: 'Class 9',
+    board: 'SEBA / CBSE / State Board',
+    subjects: [
+      {
+        slug: 'english',
+        name: 'English',
+        chapters: [
+          { slug: 'chapter-1-the-fun-they-had', title: 'Chapter 1: The Fun They Had', pdf: true },
+          { slug: 'chapter-2-the-sound-of-music', title: 'Chapter 2: The Sound of Music', pdf: false },
+        ],
+      },
+      {
+        slug: 'science',
+        name: 'Science',
+        chapters: [
+          { slug: 'chapter-1-matter-in-our-surroundings', title: 'Chapter 1: Matter in Our Surroundings', pdf: true },
+          { slug: 'chapter-2-is-matter-around-us-pure', title: 'Chapter 2: Is Matter Around Us Pure', pdf: true },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'class-10',
+    name: 'Class 10',
+    board: 'SEBA / CBSE / State Board',
+    subjects: [
+      {
+        slug: 'mathematics',
+        name: 'Mathematics',
+        chapters: [
+          { slug: 'chapter-1-real-numbers', title: 'Chapter 1: Real Numbers', pdf: true },
+          { slug: 'chapter-2-polynomials', title: 'Chapter 2: Polynomials', pdf: true },
+          { slug: 'chapter-3-pair-of-linear-equations', title: 'Chapter 3: Pair of Linear Equations', pdf: true },
+        ],
+      },
+      {
+        slug: 'science',
+        name: 'Science',
+        chapters: [
+          { slug: 'chapter-1-chemical-reactions', title: 'Chapter 1: Chemical Reactions', pdf: true },
+          { slug: 'chapter-2-acids-bases-salts', title: 'Chapter 2: Acids, Bases and Salts', pdf: true },
+        ],
+      },
+      {
+        slug: 'social-science',
+        name: 'Social Science',
+        chapters: [
+          { slug: 'chapter-1-rise-of-nationalism', title: 'Chapter 1: Rise of Nationalism', pdf: false },
+          { slug: 'chapter-2-nationalism-in-india', title: 'Chapter 2: Nationalism in India', pdf: true },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'class-11',
+    name: 'Class 11',
+    board: 'AHSEC / CBSE / State Board',
+    subjects: [
+      {
+        slug: 'biology',
+        name: 'Biology',
+        chapters: [
+          { slug: 'chapter-1-living-world', title: 'Chapter 1: The Living World', pdf: true },
+          { slug: 'chapter-2-biological-classification', title: 'Chapter 2: Biological Classification', pdf: true },
+        ],
+      },
+      {
+        slug: 'economics',
+        name: 'Economics',
+        chapters: [
+          { slug: 'chapter-1-indian-economy', title: 'Chapter 1: Indian Economy', pdf: false },
+          { slug: 'chapter-2-collection-of-data', title: 'Chapter 2: Collection of Data', pdf: true },
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'class-12',
+    name: 'Class 12',
+    board: 'AHSEC / CBSE / State Board',
+    subjects: [
+      {
+        slug: 'physics',
+        name: 'Physics',
+        chapters: [
+          { slug: 'chapter-1-electric-charges', title: 'Chapter 1: Electric Charges and Fields', pdf: true },
+          { slug: 'chapter-2-electrostatic-potential', title: 'Chapter 2: Electrostatic Potential', pdf: true },
+        ],
+      },
+      {
+        slug: 'history',
+        name: 'History',
+        chapters: [
+          { slug: 'chapter-1-bricks-beads-bones', title: 'Chapter 1: Bricks, Beads and Bones', pdf: false },
+          { slug: 'chapter-2-kings-farmers-towns', title: 'Chapter 2: Kings, Farmers and Towns', pdf: true },
+        ],
+      },
+    ],
+  },
+];
+
+export function getClassBySlug(classSlug) {
+  return classes.find((item) => item.slug === classSlug);
+}
+
+export function getSubject(classSlug, subjectSlug) {
+  return getClassBySlug(classSlug)?.subjects.find((item) => item.slug === subjectSlug);
+}
+
+export function getChapter(classSlug, subjectSlug, chapterSlug) {
+  return getSubject(classSlug, subjectSlug)?.chapters.find((item) => item.slug === chapterSlug);
+}
+
+export function getFeaturedChapters() {
+  return classes.flatMap((course) =>
+    course.subjects.flatMap((subject) =>
+      subject.chapters.slice(0, 1).map((chapter) => ({
+        classSlug: course.slug,
+        className: course.name,
+        subjectSlug: subject.slug,
+        subjectName: subject.name,
+        ...chapter,
+      }))
+    )
+  );
+}

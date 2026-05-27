@@ -1,0 +1,51 @@
+
+import Link from 'next/link';
+
+const navItems = [
+...
+      </div>
+    </header>
+  );
+}
+Tool Call
+Function Name:
+Write
+Arguments:
+file_path:
+/home/user/student-solutions-next/components/Header.js
+content:
+import Link from 'next/link';
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Class 8', href: '/class/class-8' },
+  { label: 'Class 9', href: '/class/class-9' },
+  { label: 'Class 10', href: '/class/class-10' },
+  { label: 'Class 11', href: '/class/class-11' },
+  { label: 'Class 12', href: '/class/class-12' },
+  { label: 'Notes PDF', href: '/search?q=pdf' },
+];
+
+export default function Header() {
+  return (
+    <header className="site-header">
+      <div className="container header-inner">
+        <Link href="/" className="brand">
+          <span className="brand-badge">SS</span>
+          <div>
+            <strong>Student Solutions Hub</strong>
+            <p>Chapter-wise answers, notes and PDFs</p>
+          </div>
+        </Link>
+
+        <nav className="main-nav">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}

@@ -1,0 +1,158 @@
+import Link from 'next/link';
+import Card from '../components/Card';
+import SectionTitle from '../components/SectionTitle';
+...
+      </section>
+    </>
+  );
+}
+Tool Call
+Function Name:
+Write
+Arguments:
+file_path:
+/home/user/student-solutions-next/app/page.js
+content:
+import Link from 'next/link';
+import Card from '../components/Card';
+import SectionTitle from '../components/SectionTitle';
+import { classes, getFeaturedChapters } from '../lib/siteData';
+
+export default function HomePage() {
+  const featuredChapters = getFeaturedChapters();
+
+  return (
+    <>
+      <section className="hero">
+        <div className="container hero-grid">
+          <div>
+            <span className="eyebrow">Education Website Starter</span>
+            <h1>Upload solutions for students in a clean, class-wise learning portal</h1>
+            <p>
+              Publish chapter answers, notes, PDFs, previous year questions, and board-specific
+              resources in one fast, mobile-friendly website.
+            </p>
+
+            <div className="hero-actions">
+              <Link href="/class/class-10" className="button primary">
+                Browse Class 10
+              </Link>
+              <Link href="/search?q=maths" className="button secondary">
+                Search Solutions
+              </Link>
+            </div>
+
+            <div className="hero-stats">
+              <div>
+                <strong>5</strong>
+                <span>Classes</span>
+              </div>
+              <div>
+                <strong>11+</strong>
+                <span>Subjects</span>
+              </div>
+              <div>
+                <strong>20+</strong>
+                <span>Starter Chapters</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-panel">
+            <h3>Homepage content</h3>
+            <ul>
+              <li>Free chapter-wise solutions for every class</li>
+              <li>Simple language explanations with exam-ready answers</li>
+              <li>Downloadable PDF notes and revision materials</li>
+              <li>Mobile-first reading experience for students</li>
+            </ul>
+            <div className="notice-card">
+              <strong>Recommended CTA</strong>
+              <p>Find your class → choose your subject → open your chapter solution.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionTitle
+            eyebrow="Class Structure"
+            title="Browse by class"
+            description="Use class landing pages as the top-level navigation so students can find subjects and chapters quickly."
+          />
+          <div className="card-grid three">
+            {classes.map((item) => (
+              <Card
+                key={item.slug}
+                title={item.name}
+                description={`Board: ${item.board}. Open subjects, chapter-wise answers, notes, and PDFs.`}
+                href={`/class/${item.slug}`}
+                meta={`${item.subjects.length} subjects`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section muted">
+        <div className="container">
+          <SectionTitle
+            eyebrow="Featured Answers"
+            title="Popular solution pages"
+            description="Create dedicated chapter pages with question-answer content, key concepts, PDFs, and related chapters."
+          />
+          <div className="card-grid three">
+            {featuredChapters.map((item) => (
+              <Card
+                key={`${item.classSlug}-${item.subjectSlug}-${item.slug}`}
+                title={item.title}
+                description={`${item.className} • ${item.subjectName} • Detailed answer page with related resources.`}
+                href={`/class/${item.classSlug}/subject/${item.subjectSlug}/chapter/${item.slug}`}
+                meta={item.pdf ? 'PDF included' : 'Web article'}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container two-column">
+          <div>
+            <SectionTitle
+              eyebrow="Homepage Sections"
+              title="Recommended homepage layout"
+              description="This order keeps the homepage useful for both students and search engines."
+            />
+            <ol className="ordered-list">
+              <li>Hero section with search and class shortcuts</li>
+              <li>Browse by class cards</li>
+              <li>Popular subjects</li>
+              <li>Latest uploaded solutions</li>
+              <li>Download PDFs and notes</li>
+              <li>Previous year questions</li>
+              <li>Why students trust us</li>
+              <li>FAQ and contact CTA</li>
+            </ol>
+          </div>
+          <div className="panel-list">
+            <div className="panel">
+              <h3>Ideal student promise</h3>
+              <p>
+                Get easy chapter-wise answers, exam notes, and revision PDFs in one place.
+              </p>
+            </div>
+            <div className="panel">
+              <h3>Monetization-ready</h3>
+              <p>Add ad slots later without making the site look cluttered or confusing.</p>
+            </div>
+            <div className="panel">
+              <h3>Admin-friendly</h3>
+              <p>Use the same structure in WordPress categories, tags, and custom post types.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
