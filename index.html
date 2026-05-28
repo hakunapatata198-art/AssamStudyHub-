@@ -81,7 +81,7 @@
             margin-bottom: 0.5rem;
         }
         
-        .subjects {
+        .subjects-section {
             background: white;
             padding: 2rem;
             border-radius: 10px;
@@ -89,7 +89,7 @@
             margin-bottom: 2rem;
         }
         
-        .subjects h2 {
+        .subjects-section h2 {
             color: #667eea;
             margin-bottom: 1rem;
         }
@@ -112,6 +112,65 @@
         
         .subject-item:hover {
             transform: scale(1.05);
+        }
+        
+        /* Classes and Subjects Grid */
+        .classes-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .classes-section h2 {
+            color: #667eea;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .class-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .class-card h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .subject-buttons {
+            display: grid;
+            gap: 0.8rem;
+        }
+        
+        .subject-btn {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .subject-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
         }
         
         .cta-section {
@@ -170,12 +229,15 @@
             .container {
                 padding: 0 1rem;
             }
+            
+            .classes-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <!-- You can keep your logo image tag here or use a ninja emoji 🥷 for now -->
         <h1>🥷 EduNinjaAssam</h1>
         <p>Free Digital Platform for SEBA Solutions & Competitive Exam Prep</p>
     </div>
@@ -183,7 +245,7 @@
     <div class="container">
         <div class="welcome-section">
             <h2>Welcome to EduNinjaAssam! 🥷✨</h2>
-            <p>EduNinjaAssam is a free, comprehensive digital platform providing precise, step-by-step SEBA textbook solutions and smart learning resources. We're dedicated to helping students across Assam master their studies and conquer competitive exams effectively, without ads or paywalls.</p>
+            <p>EduNinjaAssam is a free, comprehensive digital platform providing precise, step-by-step SEBA textbook solutions and smart learning resources. We're dedicated to helping students across Assam excel in their studies and competitive exams.</p>
         </div>
         
         <div class="features">
@@ -205,8 +267,45 @@
             </div>
         </div>
         
-        <div class="subjects">
-            <h2>📖 Subjects Covered</h2>
+        <!-- Classes and Subjects Navigation -->
+        <div class="classes-section">
+            <h2>📚 Select Your Class & Subject</h2>
+            
+            <div class="classes-grid">
+                <!-- Class 1 -->
+                <div class="class-card">
+                    <h3>📖 Class 1</h3>
+                    <div class="subject-buttons">
+                        <a href="class1-science.html" class="subject-btn">🔬 Science</a>
+                        <a href="class1-math.html" class="subject-btn">🧮 Mathematics</a>
+                        <a href="class1-english.html" class="subject-btn">📝 English</a>
+                    </div>
+                </div>
+                
+                <!-- Class 2 -->
+                <div class="class-card">
+                    <h3>📖 Class 2</h3>
+                    <div class="subject-buttons">
+                        <a href="class2-science.html" class="subject-btn">🔬 Science</a>
+                        <a href="class2-math.html" class="subject-btn">🧮 Mathematics</a>
+                        <a href="class2-english.html" class="subject-btn">📝 English</a>
+                    </div>
+                </div>
+                
+                <!-- Class 3 -->
+                <div class="class-card">
+                    <h3>📖 Class 3</h3>
+                    <div class="subject-buttons">
+                        <a href="class3-science.html" class="subject-btn">🔬 Science</a>
+                        <a href="class3-math.html" class="subject-btn">🧮 Mathematics</a>
+                        <a href="class3-english.html" class="subject-btn">📝 English</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="subjects-section">
+            <h2>📚 Subjects Covered</h2>
             <div class="subject-list">
                 <div class="subject-item">Assamese</div>
                 <div class="subject-item">English</div>
@@ -218,12 +317,9 @@
         </div>
         
         <div class="cta-section">
-            <div class="coming-soon">
-                <strong>⏳ Coming Soon:</strong> Full curriculum content and interactive learning tools are under development. Check back soon!
-            </div>
             <h2>Get Started Today</h2>
-            <p>Browse through our materials or join our community of learners</p>
-            <a href="https://github.com/hakunapatata198-art/AssamStudyHub-" class="cta-button">View on GitHub</a>
+            <p>Choose your class above to begin learning!</p>
+            <a href="https://github.com/hakunapatata198-art/EduNinjaAssam" class="cta-button">View on GitHub</a>
             <a href="#contact" class="cta-button">Contact Us</a>
         </div>
     </div>
