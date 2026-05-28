@@ -81,6 +81,68 @@
             margin-bottom: 0.5rem;
         }
         
+        .classes-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .classes-section h2 {
+            color: #667eea;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .class-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .class-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .subject-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .subject-btn {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .subject-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+        }
+        
         .subjects-section {
             background: white;
             padding: 2rem;
@@ -114,93 +176,6 @@
             transform: scale(1.05);
         }
         
-        /* Classes and Subjects Grid */
-        .classes-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .classes-section h2 {
-            color: #667eea;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .classes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .class-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .class-card h3 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-        
-        .subject-buttons {
-            display: grid;
-            gap: 0.8rem;
-        }
-        
-        .subject-btn {
-            display: block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .subject-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
-        }
-        
-        .cta-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            margin: 0.5rem;
-        }
-        
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-        
         footer {
             background: rgba(0, 0, 0, 0.8);
             color: #fff;
@@ -213,14 +188,6 @@
             margin: 0.5rem 0;
         }
         
-        .coming-soon {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-        }
-        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 1.8rem;
@@ -231,6 +198,10 @@
             }
             
             .classes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .subject-buttons {
                 grid-template-columns: 1fr;
             }
         }
@@ -269,39 +240,9 @@
         
         <!-- Classes and Subjects Navigation -->
         <div class="classes-section">
-            <h2>📚 Select Your Class & Subject</h2>
+            <h2>📚 Select Your Class & Subject (Classes 1-10)</h2>
             
-            <div class="classes-grid">
-                <!-- Class 1 -->
-                <div class="class-card">
-                    <h3>📖 Class 1</h3>
-                    <div class="subject-buttons">
-                        <a href="class1-science.html" class="subject-btn">🔬 Science</a>
-                        <a href="class1-math.html" class="subject-btn">🧮 Mathematics</a>
-                        <a href="class1-english.html" class="subject-btn">📝 English</a>
-                    </div>
-                </div>
-                
-                <!-- Class 2 -->
-                <div class="class-card">
-                    <h3>📖 Class 2</h3>
-                    <div class="subject-buttons">
-                        <a href="class2-science.html" class="subject-btn">🔬 Science</a>
-                        <a href="class2-math.html" class="subject-btn">🧮 Mathematics</a>
-                        <a href="class2-english.html" class="subject-btn">📝 English</a>
-                    </div>
-                </div>
-                
-                <!-- Class 3 -->
-                <div class="class-card">
-                    <h3>📖 Class 3</h3>
-                    <div class="subject-buttons">
-                        <a href="class3-science.html" class="subject-btn">🔬 Science</a>
-                        <a href="class3-math.html" class="subject-btn">🧮 Mathematics</a>
-                        <a href="class3-english.html" class="subject-btn">📝 English</a>
-                    </div>
-                </div>
-            </div>
+            <div class="classes-grid" id="classesGrid"></div>
         </div>
         
         <div class="subjects-section">
@@ -311,16 +252,9 @@
                 <div class="subject-item">English</div>
                 <div class="subject-item">Hindi</div>
                 <div class="subject-item">Science</div>
-                <div class="subject-item">Social Studies</div>
+                <div class="subject-item">Social Science</div>
                 <div class="subject-item">Mathematics</div>
             </div>
-        </div>
-        
-        <div class="cta-section">
-            <h2>Get Started Today</h2>
-            <p>Choose your class above to begin learning!</p>
-            <a href="https://github.com/hakunapatata198-art/EduNinjaAssam" class="cta-button">View on GitHub</a>
-            <a href="#contact" class="cta-button">Contact Us</a>
         </div>
     </div>
     
@@ -329,5 +263,34 @@
         <p>Licensed under MIT License</p>
         <p>Made with ❤️ for students in Assam</p>
     </footer>
+
+    <script>
+        // Data for all classes
+        const subjects = [
+            { name: 'Science', icon: '🔬', code: 'science' },
+            { name: 'Mathematics', icon: '🧮', code: 'math' },
+            { name: 'English', icon: '📝', code: 'english' },
+            { name: 'Social Science', icon: '🌍', code: 'socialscience' },
+            { name: 'Hindi', icon: '🗣️', code: 'hindi' },
+            { name: 'Assamese', icon: '🗣️', code: 'assamese' }
+        ];
+
+        // Generate class cards dynamically
+        const classesGrid = document.getElementById('classesGrid');
+        
+        for (let classNum = 1; classNum <= 10; classNum++) {
+            const classCard = document.createElement('div');
+            classCard.className = 'class-card';
+            classCard.innerHTML = `<h3>📖 Class ${classNum}</h3><div class="subject-buttons">`;
+            
+            subjects.forEach(subject => {
+                const fileName = `class${classNum}-${subject.code}.html`;
+                classCard.innerHTML += `<a href="${fileName}" class="subject-btn">${subject.icon} ${subject.name}</a>`;
+            });
+            
+            classCard.innerHTML += `</div>`;
+            classesGrid.appendChild(classCard);
+        }
+    </script>
 </body>
 </html>
